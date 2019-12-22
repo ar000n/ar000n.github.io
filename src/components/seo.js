@@ -33,19 +33,19 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | Profile`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: `Arun Sathian`,
         },
         {
           property: `og:title`,
-          content: title,
+          content: `Arun Sathian`,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: `Arun Sathian`,
         },
         {
           property: `og:type`,
@@ -57,15 +57,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `Arun Sathian`,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `Arun Sathian`,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: `Arun Sathian`,
         },
       ].concat(meta)}
     />
