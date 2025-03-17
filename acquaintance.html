@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Sathian - Introduction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #f4d03f;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #f4d03f;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid #f4d03f;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #f4d03f;
+            color: #000;
+        }
+
+        .profile-section {
+            background: rgba(244, 208, 63, 0.1);
+            border: 2px solid #f4d03f;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .intro-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #f4d03f;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intro-text {
+            flex: 1;
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .interest-item {
+            background: rgba(244, 208, 63, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: #f4d03f;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #fff;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: #f4d03f;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back</a>
+    <div class="container">
+        <div class="header">
+            <h1>Arun Sathian</h1>
+            <p>Nice to meet you!</p>
+        </div>
+
+        <div class="profile-section">
+            <div class="intro-card">
+                <div class="intro-image">
+                    <img src="https://via.placeholder.com/200" alt="Arun Sathian">
+                </div>
+                <div class="intro-text">
+                    <h2>About Me</h2>
+                    <p>Hey there! I'm Arun, a software engineer who loves creating things that make a difference. When I'm not coding, you can find me exploring new technologies, reading tech blogs, or trying out new coffee shops in town.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <h2>What I Do</h2>
+            <p>I work as a software engineer, focusing on building web applications and solving complex technical problems. I'm passionate about creating user-friendly solutions and learning new technologies.</p>
+        </div>
+
+        <div class="profile-section">
+            <h2>Interests</h2>
+            <div class="interests">
+                <div class="interest-item">
+                    <div>💻</div>
+                    <p>Programming</p>
+                </div>
+                <div class="interest-item">
+                    <div>☕</div>
+                    <p>Coffee</p>
+                </div>
+                <div class="interest-item">
+                    <div>📚</div>
+                    <p>Reading</p>
+                </div>
+                <div class="interest-item">
+                    <div>🎮</div>
+                    <p>Gaming</p>
+                </div>
+                <div class="interest-item">
+                    <div>🎸</div>
+                    <p>Music</p>
+                </div>
+                <div class="interest-item">
+                    <div>✈️</div>
+                    <p>Travel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" class="social-link">📱</a>
+                <a href="https://linkedin.com" target="_blank" class="social-link">💼</a>
+                <a href="https://twitter.com" target="_blank" class="social-link">🐦</a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <a href="mailto:contact@example.com">Email</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+        </div>
+    </div>
+</body>
+</html> 
