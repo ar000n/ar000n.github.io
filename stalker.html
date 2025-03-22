@@ -4,72 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arun Sathian - Stalker's Guide</title>
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #000;
-            color: #f4d03f;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: #f4d03f;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border: 2px solid #f4d03f;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #f4d03f;
-            color: #000;
-        }
-
         .profile-section {
             background: rgba(244, 208, 63, 0.1);
-            border: 2px solid #f4d03f;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
         .warning {
             background: rgba(255, 0, 0, 0.2);
-            border: 2px solid #ff0000;
+            border: 0.5px solid rgba(255, 0, 0, 0.3);
             padding: 1rem;
             border-radius: 10px;
             margin-bottom: 2rem;
@@ -88,6 +36,7 @@
             padding: 1rem;
             border-radius: 10px;
             text-align: center;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
         }
 
         .schedule-time {
@@ -115,6 +64,7 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s ease;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
         }
 
         .favorite-item:hover {
@@ -132,140 +82,227 @@
             padding: 1rem;
             border-radius: 10px;
             margin-top: 1rem;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
         }
 
         .contact-info {
             text-align: center;
             margin-top: 2rem;
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(244, 208, 63, 0.15);
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: none;
+            position: relative;
+        }
+
+        .contact-info h2::after {
+            display: none;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 1rem;
         }
 
         .contact-info a {
             color: #f4d03f;
             text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 500;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: rgba(244, 208, 63, 0.05);
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            animation: juggle 2s infinite ease-in-out;
+            position: relative;
+        }
+
+        .contact-info a:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .contact-info a:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes juggle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .contact-info a span {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .contact-info a small {
+            font-size: 0.9rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .contact-info a:hover::after {
+            content: "I don't think it's a good idea!";
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 1000;
+            animation: none;
         }
 
         .contact-info a:hover {
-            color: #fff;
+            background: rgba(244, 208, 63, 0.2);
+            border-color: rgba(244, 208, 63, 0.2);
+            animation-play-state: paused;
+            box-shadow: 0 5px 20px rgba(244, 208, 63, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .contact-info a {
+                width: 80px;
+                height: 80px;
+                padding: 0.8rem;
+            }
+
+            .contact-info a span {
+                font-size: 1.5rem;
+            }
+
+            .contact-info a small {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-button">← Back</a>
     <div class="container">
-        <div class="header">
-            <h1>Arun Sathian</h1>
-            <p>Stalker's Guide (Just for fun! Don't call the police!)</p>
-        </div>
 
         <div class="warning">
-            <p>⚠️ DISCLAIMER: This page is purely for entertainment. No actual stalking was involved in the making of this page. 
-            The creator is not responsible for any restraining orders obtained while viewing this content. ⚠️</p>
+            <p>⚠️ DISCLAIMER: This page is purely for entertainment. I'm not responsible for any restraining orders you might get while stalking me. 
+            Also, please don't show up at my house unannounced. ⚠️</p>
         </div>
 
         <div class="profile-section">
-            <h2>Daily Schedule (According to my extensive research)</h2>
+            <h2>My Daily Schedule (For your stalking convenience)</h2>
             <div class="schedule">
                 <div class="schedule-item">
                     <div class="schedule-time">7:00 AM</div>
                     <div>☕ Coffee Time</div>
-                    <div class="schedule-note">(Probably at that hipster cafe downtown)</div>
+                    <div class="schedule-note">(At that hipster cafe downtown, but please don't sit too close)</div>
                 </div>
                 <div class="schedule-item">
                     <div class="schedule-time">9:00 AM</div>
                     <div>💻 Coding</div>
-                    <div class="schedule-note">(Definitely debugging at 3 AM too)</div>
+                    <div class="schedule-note">(Yes, I do debug at 3 AM, but please don't watch through my window)</div>
                 </div>
                 <div class="schedule-item">
                     <div class="schedule-time">12:00 PM</div>
                     <div>🍱 Lunch</div>
-                    <div class="schedule-note">(Probably eating at his desk again)</div>
+                    <div class="schedule-note">(Usually at my desk, but sometimes I go out - please maintain social distance)</div>
                 </div>
                 <div class="schedule-item">
                     <div class="schedule-time">3:00 PM</div>
                     <div>🎮 Gaming Break</div>
-                    <div class="schedule-note">(Definitely not working)</div>
+                    <div class="schedule-note">(Yes, I'm actually working, not just gaming)</div>
                 </div>
                 <div class="schedule-item">
                     <div class="schedule-time">6:00 PM</div>
                     <div>🎸 Guitar Practice</div>
-                    <div class="schedule-note">(Neighbors probably hate him)</div>
+                    <div class="schedule-note">(My neighbors already hate me, please don't add to their misery)</div>
                 </div>
             </div>
         </div>
 
         <div class="profile-section">
-            <h2>Favorite Things (Based on my careful observation)</h2>
+            <h2>Things About Me (that you probably already know)</h2>
             <div class="favorite-things">
                 <div class="favorite-item">
-                    <div>🎮</div>
-                    <p>Gaming</p>
-                    <div class="favorite-note">(Probably a pro gamer)</div>
+                    <div>🎣</div>
+                    <p>Fishing</p>
+                    <div class="favorite-note">(Yes, I fish, but please don't follow me to the lake)</div>
+                </div>
+                <div class="favorite-item">
+                    <div>🚲</div>
+                    <p>Bike Ride</p>
+                    <div class="favorite-note">(I know you're probably tracking my Strava)</div>
+                </div>
+                <div class="favorite-item">
+                    <div>🐛</div>
+                    <p>Bug Fix</p>
+                    <div class="favorite-note">(Yes, I fix bugs, sometimes just by staring at the code)</div>
                 </div>
                 <div class="favorite-item">
                     <div>☕</div>
                     <p>Coffee</p>
-                    <div class="favorite-note">(Definitely addicted)</div>
-                </div>
-                <div class="favorite-item">
-                    <div>🎸</div>
-                    <p>Music</p>
-                    <div class="favorite-note">(Rock star in training)</div>
+                    <div class="favorite-note">(Yes, i make decent one too)</div>
                 </div>
                 <div class="favorite-item">
                     <div>💻</div>
                     <p>Coding</p>
-                    <div class="favorite-note">(Probably a genius)</div>
-                </div>
-                <div class="favorite-item">
-                    <div>📚</div>
-                    <p>Reading</p>
-                    <div class="favorite-note">(Probably reads code)</div>
+                    <div class="favorite-note">(i write code, sometimes it works)</div>
                 </div>
                 <div class="favorite-item">
                     <div>✈️</div>
                     <p>Travel</p>
-                    <div class="favorite-note">(Probably to hack things)</div>
+                    <div class="favorite-note">(But please don't follow me to the airport)</div>
                 </div>
             </div>
         </div>
 
-        <div class="profile-section">
-            <h2>Fun Facts (From my extensive research)</h2>
-            <div class="fun-fact">
-                <p>Apparently loves debugging at 3 AM and has a secret talent for making the perfect cup of coffee! ☕</p>
-                <p>Rumor has it he can type faster than the speed of light! ⚡</p>
-                <p>Some say he once fixed a bug by just staring at the code! 👀</p>
-                <p>He probably has more coffee mugs than friends! (Just kidding... maybe) 🎭</p>
-            </div>
-        </div>
-
-        <div class="profile-section">
-            <h2>Secret Skills (Probably)</h2>
-            <div class="fun-fact">
-                <p>Can debug code while sleeping 💤</p>
-                <p>Speaks fluent binary 🤖</p>
-                <p>Has a PhD in coffee brewing ☕</p>
-                <p>Can make a computer cry with his code 😢</p>
-            </div>
-        </div>
-
-        <div class="profile-section">
-            <h2>Conspiracy Theories</h2>
-            <div class="fun-fact">
-                <p>Some say he's actually a robot 🤖</p>
-                <p>Others claim he doesn't actually sleep 😴</p>
-                <p>There's a theory he's from the future ⏰</p>
-                <p>Some believe he's a coffee-powered superhero 🦸‍♂️</p>
-            </div>
-        </div>
 
         <div class="contact-info">
-            <p>If you're still reading this, you might be a stalker too! 😅</p>
-            <a href="mailto:contact@example.com">Email</a>
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <h2>Connect with Arun</h2>
+            <div class="contact-links">
+                <a href="#" onclick="return false;">
+                    <span>📸</span>
+                    <small>Instagram</small>
+                </a>
+            </div>
         </div>
     </div>
 </body>

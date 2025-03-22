@@ -4,234 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arun Sathian - Friend Profile</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #000;
-            color: #f4d03f;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: #f4d03f;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border: 2px solid #f4d03f;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #f4d03f;
-            color: #000;
-        }
-
         .profile-section {
             background: rgba(244, 208, 63, 0.1);
-            border: 2px solid #f4d03f;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+        .emotional-note {
+            font-size: 1.2rem;
+            line-height: 1.8;
             color: #fff;
+            text-align: center;
+            padding: 2rem;
         }
 
-        .memory-timeline {
-            position: relative;
-            padding: 2rem 0;
+        .emotional-note p {
+            margin-bottom: 1.5rem;
         }
 
-        .memory-item {
-            position: relative;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            background: rgba(244, 208, 63, 0.2);
-            border-radius: 10px;
+        .signature {
+            margin-top: 2rem;
+            font-style: italic;
+            color: #f4d03f;
+            font-size: 1.1rem;
+            text-align: right;
+            padding-right: 2rem;
         }
 
-        .memory-item::before {
+        .signature::before {
             content: '';
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            width: 20px;
-            height: 2px;
-            background: #f4d03f;
-        }
-
-        .memory-item::after {
-            content: '';
-            position: absolute;
-            left: -24px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: #f4d03f;
-            border-radius: 50%;
-        }
-
-        .memory-date {
-            font-size: 0.9rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .memory-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .memory-icon {
-            font-size: 2rem;
-        }
-
-        .memory-text {
-            flex: 1;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: rgba(244, 208, 63, 0.3);
+            margin: 0 0 1rem auto;
         }
 
         .contact-info {
             text-align: center;
             margin-top: 2rem;
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(244, 208, 63, 0.15);
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: none;
+            position: relative;
+        }
+
+        .contact-info h2::after {
+            display: none;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 1rem;
         }
 
         .contact-info a {
             color: #f4d03f;
             text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 500;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: rgba(244, 208, 63, 0.05);
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            animation: juggle 2s infinite ease-in-out;
+        }
+
+        .contact-info a:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .contact-info a:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes juggle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .contact-info a span {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .contact-info a small {
+            font-size: 0.9rem;
+            text-align: center;
+            line-height: 1.2;
         }
 
         .contact-info a:hover {
-            color: #fff;
+            background: rgba(244, 208, 63, 0.2);
+            border-color: rgba(244, 208, 63, 0.2);
+            animation-play-state: paused;
+            box-shadow: 0 5px 20px rgba(244, 208, 63, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .contact-info a {
+                width: 80px;
+                height: 80px;
+                padding: 0.8rem;
+            }
+
+            .contact-info a span {
+                font-size: 1.5rem;
+            }
+
+            .contact-info a small {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-button">← Back</a>
     <div class="container">
-        <div class="header">
-            <h1>Arun Sathian</h1>
-            <p>Your Old Friend</p>
-        </div>
 
         <div class="profile-section">
-            <h2>Our Journey Together</h2>
-            <div class="memory-timeline">
-                <div class="memory-item">
-                    <div class="memory-date">2015</div>
-                    <div class="memory-content">
-                        <div class="memory-icon">🎓</div>
-                        <div class="memory-text">
-                            <p>Graduation Day! Remember how we celebrated with that crazy road trip?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="memory-item">
-                    <div class="memory-date">2016</div>
-                    <div class="memory-content">
-                        <div class="memory-icon">🎮</div>
-                        <div class="memory-text">
-                            <p>Those late-night gaming sessions and pizza runs!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="memory-item">
-                    <div class="memory-date">2018</div>
-                    <div class="memory-content">
-                        <div class="memory-icon">🎸</div>
-                        <div class="memory-text">
-                            <p>Our first (and last) attempt at starting a band!</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="emotional-note">
+                <p>Hey there 👋</p>
+                <p>Life has a funny way of keeping us busy, doesn't it? Time flies, and before we know it, those late-night chats and crazy adventures seem like they happened in another lifetime.</p>
+                <p>But you know what? The memories we shared are still as fresh as ever. The inside jokes, the shared dreams, the moments that made us laugh until our sides hurt - they're all still there, etched in my heart.</p>
+                <p>I might not have been the best at keeping in touch, but that doesn't change who we are to each other. I'm still your old Arun, and you're still my dear friend.</p>
+                <p>Let's catch up sometime? I'd love to hear about your journey and share mine with you.</p>
+                <div class="signature">with love<br>arun.</div>
             </div>
-        </div>
-
-        <div class="profile-section">
-            <h2>Photo Gallery</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="College Days">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Road Trip">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gaming Night">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Band Practice">
-                </div>
-            </div>
-        </div>
-
-        <div class="profile-section">
-            <h2>Inside Jokes</h2>
-            <p>Remember that time we tried to debug the coffee machine at 3 AM? Or when we accidentally set off the fire alarm during our "cooking experiment"? Good times!</p>
         </div>
 
         <div class="contact-info">
-            <a href="mailto:contact@example.com">Email</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <h2>Get in Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:arunsathian@gmail.com">
+                    <span>📧</span>
+                    <small>Email</small>
+                </a>
+                <a href="https://www.instagram.com/arun_sathian/" target="_blank">
+                    <span>📸</span>
+                    <small>Instagram</small>
+                </a>
+            </div>
         </div>
     </div>
 </body>
