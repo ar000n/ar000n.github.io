@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +86,74 @@
             border: 0.5px solid rgba(244, 208, 63, 0.1);
         }
 
+        .location-section {
+            background: rgba(244, 208, 63, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+        }
+
+        .location-note {
+            font-size: 0.9rem;
+            color: #fff;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+            border: 0.5px solid rgba(244, 208, 63, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(244, 208, 63, 0.2);
+        }
+
+        .map-container::after {
+            content: "Click to view in Google Maps";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-container:hover::after {
+            opacity: 1;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none;
+        }
+
+        .location-warning {
+            background: rgba(255, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
         .contact-info {
             text-align: center;
             margin-top: 2rem;
@@ -154,9 +223,12 @@
         }
 
         @keyframes juggle {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
@@ -201,7 +273,7 @@
                 flex-wrap: wrap;
                 gap: 1rem;
             }
-            
+
             .contact-info a {
                 width: 80px;
                 height: 80px;
@@ -218,45 +290,17 @@
         }
     </style>
 </head>
+
 <body>
     <a href="index.html" class="back-button">← Back</a>
     <div class="container">
 
         <div class="warning">
-            <p>⚠️ DISCLAIMER: This page is purely for entertainment. I'm not responsible for any restraining orders you might get while stalking me. 
-            Also, please don't show up at my house unannounced. ⚠️</p>
+            <p>⚠️ DISCLAIMER: This page is purely for entertainment. I'm not responsible for any restraining orders you
+                might get while stalking me.
+                Also, please don't show up at my house unannounced. ⚠️</p>
         </div>
 
-        <div class="profile-section">
-            <h2>My Daily Schedule (For your stalking convenience)</h2>
-            <div class="schedule">
-                <div class="schedule-item">
-                    <div class="schedule-time">7:00 AM</div>
-                    <div>☕ Coffee Time</div>
-                    <div class="schedule-note">(At that hipster cafe downtown, but please don't sit too close)</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="schedule-time">9:00 AM</div>
-                    <div>💻 Coding</div>
-                    <div class="schedule-note">(Yes, I do debug at 3 AM, but please don't watch through my window)</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="schedule-time">12:00 PM</div>
-                    <div>🍱 Lunch</div>
-                    <div class="schedule-note">(Usually at my desk, but sometimes I go out - please maintain social distance)</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="schedule-time">3:00 PM</div>
-                    <div>🎮 Gaming Break</div>
-                    <div class="schedule-note">(Yes, I'm actually working, not just gaming)</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="schedule-time">6:00 PM</div>
-                    <div>🎸 Guitar Practice</div>
-                    <div class="schedule-note">(My neighbors already hate me, please don't add to their misery)</div>
-                </div>
-            </div>
-        </div>
 
         <div class="profile-section">
             <h2>Things About Me (that you probably already know)</h2>
@@ -264,18 +308,14 @@
                 <div class="favorite-item">
                     <div>🎣</div>
                     <p>Fishing</p>
-                    <div class="favorite-note">(Yes, I fish, but please don't follow me to the lake)</div>
+                    <div class="favorite-note">I fish, sometimes just feed them</div>
                 </div>
                 <div class="favorite-item">
                     <div>🚲</div>
                     <p>Bike Ride</p>
-                    <div class="favorite-note">(I know you're probably tracking my Strava)</div>
+                    <div class="favorite-note">I have a 410cc Therapist</div>
                 </div>
-                <div class="favorite-item">
-                    <div>🐛</div>
-                    <p>Bug Fix</p>
-                    <div class="favorite-note">(Yes, I fix bugs, sometimes just by staring at the code)</div>
-                </div>
+
                 <div class="favorite-item">
                     <div>☕</div>
                     <p>Coffee</p>
@@ -284,16 +324,35 @@
                 <div class="favorite-item">
                     <div>💻</div>
                     <p>Coding</p>
-                    <div class="favorite-note">(i write code, sometimes it works)</div>
+                    <div class="favorite-note">Write code, that sometimes works and fix bugs by staring at the code
+                    </div>
                 </div>
                 <div class="favorite-item">
                     <div>✈️</div>
                     <p>Travel</p>
-                    <div class="favorite-note">(But please don't follow me to the airport)</div>
+                    <div class="favorite-note">Don't follow me, you will be forever lost</div>
                 </div>
             </div>
         </div>
 
+        <div class="profile-section">
+            <h2>My Location (For your stalking convenience)</h2>
+            <div class="location-section">
+                <p class="location-note">🏠 Thrissur, Kerala</p>
+                <div class="map-container" onclick="window.open('https://www.google.com/maps/place/Vadakkunnathan+Temple/@10.5247,76.2147,17z/', '_blank')">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.9990710937584!2d76.21470731479055!3d10.524699992487775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7ee48f3b3d2c7%3A0x2ad06e0fa0daa29a!2sVadakkunnathan%20Temple!5e0!3m2!1sen!2sin!4v1629789876543!5m2!1sen!2sin"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="location-note">🕉️ Cultural Capital of Kerala</p>
+                <div class="location-warning">
+                    ⚠️ Warning: Don't show up unannounced, or just simply don't show up!
+                </div>
+            </div>
+        </div>
 
         <div class="contact-info">
             <h2>Connect with Arun</h2>
@@ -306,4 +365,5 @@
         </div>
     </div>
 </body>
-</html> 
+
+</html>
