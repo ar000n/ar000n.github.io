@@ -16,6 +16,9 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
 }
 
 .header {
@@ -43,12 +46,106 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 
 h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: #fff;
-} 
+}
+
+.greeting {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-transform: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.name {
+    display: block;
+    letter-spacing: 6px;
+}
+
+.question {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.personas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.persona-card {
+    background: rgba(244, 208, 63, 0.1);
+    border: 0.5px solid rgba(244, 208, 63, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.persona-card:hover {
+    transform: translateY(-5px);
+    background: rgba(244, 208, 63, 0.2);
+}
+
+.persona-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.persona-text {
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+button[type="submit"] {
+    background-color: #f4d03f;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d4b03f;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    .name {
+        letter-spacing: 4px;
+    }
+
+    .question {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .personas {
+        grid-template-columns: 1fr;
+    }
+}

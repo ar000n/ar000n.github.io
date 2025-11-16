@@ -125,6 +125,10 @@
                 <div class="persona-icon">🕵️</div>
                 <div class="persona-text">I guess I am a Stalker</div>
             </div>
+            <div class="persona-card" onclick="redirectTo('message')">
+                <div class="persona-icon">✉️</div>
+                <div class="persona-text">Write Me Anonymously</div>
+            </div>
         </div>
     </div>
 
@@ -146,8 +150,11 @@
                 case 'stalker':
                     window.location.href = 'stalker.html';
                     break;
+                case 'message':
+                    window.location.href = 'message.html';
+                    break;
             }
         }
     </script>
 </body>
-</html> 
+</html>
